@@ -1,0 +1,28 @@
+<div class="container" *ngIf="pokemons; else loading">
+  <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="5"
+    (scrolled)="onScrollDown()" infinite-scroll-disabled="infiniteScorllStatus">
+    <div class="row">
+      <div *ngFor="let pokemon of pokemons; index as id" class="col-sm-3">
+        <!-- <div (click)="getPokemon(pokemon.id)"> -->
+            <div>
+                <h4>
+                  <a [title]="pokemon.name + ' details'" [routerLink]="['details',pokemon.id]">
+                    {{ pokemon.name | uppercase}}
+                  </a>
+                </h4>
+              </div>
+              <div class="image-container">
+                <a [routerLink]="['details',pokemon.id]">
+                  <img [src]="pokemon.imageUrl" />
+                </a>
+              </div>
+              <div>          
+                <h4><a [routerLink]="['details',pokemon.id]">{{pokemon.supertype}}</a></h4>
+              </div>
+            </div>
+        <!-- </div>         -->
+    </div>
+
+  </div>
+</div>
+<div class="loader" *ngIf="!infiniteScorllStatus">Loading...</div>

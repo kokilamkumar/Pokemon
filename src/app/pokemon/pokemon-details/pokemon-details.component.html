@@ -1,0 +1,28 @@
+<!-- <div class="wrapper"><button type="button" class="btn btn-primary" (click)="goToPokemonListPage()">Back</button></div>  -->
+<div class="container" *ngIf="pokemon">
+  <div class="row">
+  <div class="col-sm-4">
+      <img [src]="pokemon.card.imageUrl">
+  </div>
+  <div class="col-sm-8">
+      <h1>{{pokemon.card.name | uppercase}}</h1>
+      <h2>{{pokemon.card.id}}</h2>
+      <p>{{pokemon.card.supertype}}</p>
+      <p>{{pokemon.card.series}}</p>
+      <p *ngFor="let pokemonType of pokemon.card.types">
+        {{pokemonType}}
+      </p>
+      <p>{{pokemon.card.rarity}}</p>
+      <p>{{pokemon.card.nationalPokedexNumber}}</p>
+      <p>{{pokemon.card.hp}}</p>
+      <p>{{pokemon.card.set}}</p>
+      <p *ngFor="let attack of pokemon.card.attacks">
+        {{attack.name}}
+      </p>
+      <p *ngFor="let weakness of pokemon.card.weaknesses">
+        {{weakness.type}}
+      </p>
+      <p>{{pokemon.card.evolvesFrom}}</p>
+  </div>
+</div>
+</div>

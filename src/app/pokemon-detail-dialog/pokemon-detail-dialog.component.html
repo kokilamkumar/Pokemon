@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Pokemon Details</h2>
+<mat-dialog-content>
+    <div>
+        <span>Pokemon Name : </span>
+        <p>{{data.name}}</p>
+    </div>
+    <app-pokemon-details [dataId]=data.id></app-pokemon-details>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>    
+</mat-dialog-actions>

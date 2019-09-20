@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { isNull } from 'util';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -8,18 +9,22 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./pokemon-details.component.css']
 })
 export class PokemonDetailsComponent implements OnInit {
-  pokemon;
+  pokemon: any;
+
+  @Input()
+  public dataId: string = null;
 
   constructor(private activatedRoute: ActivatedRoute,
-    private router:Router,
+    private router: Router,
     private http: HttpClient) { }
 
   ngOnInit() {
-    let id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(id);
-    this.http.get<any>('https://api.pokemontcg.io/v1/cards/' + id).subscribe(resp => {
+    const id = this.activatedRoute.snapshot.paramMap.get('id');
+    if (isNull(this.dataId)) {
+      this.dataId = id;
+    }
+    this.http.get<any>('https://api.pokemontcg.io/v1/cards/' + this.dataId).subscribe(resp => {
       this.pokemon = resp;
-      // console.log(this.pokemon);
     });
   }
 

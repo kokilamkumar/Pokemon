@@ -1,3 +1,3 @@
 export class Pokemons {
-    name?: string;    
+    name?: string;
 }

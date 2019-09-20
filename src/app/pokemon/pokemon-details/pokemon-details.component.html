@@ -9,9 +9,11 @@
       <h2>{{pokemon.card.id}}</h2>
       <p>{{pokemon.card.supertype}}</p>
       <p>{{pokemon.card.series}}</p>
-      <p *ngFor="let pokemonType of pokemon.card.types">
-        {{pokemonType}}
-      </p>
+      <div *ngIf="pokemon.card.types">
+        <p *ngFor="let pokemonType of pokemon.card.types">
+          {{pokemonType}}
+        </p>
+      </div>      
       <p>{{pokemon.card.rarity}}</p>
       <p>{{pokemon.card.nationalPokedexNumber}}</p>
       <p>{{pokemon.card.hp}}</p>

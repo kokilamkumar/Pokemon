@@ -1,52 +1,22 @@
-<!-- <div class="container" *ngIf="pokemons; else loading">
-    <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="5"
-    (scrolled)="onScrollDown()" infinite-scroll-disabled="infiniteScorllStatus">
-    <div class="card-deck mb-3 text-center" *ngFor="let pokemon of pokemons; index as id">
-        <div class="card mb-3 box-shadow">
-          <div class="card-header">
-              <h4>
-              <a [title]="pokemon.name + ' details'" [routerLink]="['details',pokemon.id]">
-                {{ pokemon.name | uppercase}}
-              </a>
-            </h4>
-            </div>
-            <div class="card-body image-container">
-                <a [routerLink]="['details',pokemon.id]">
-                    <img [src]="pokemon.imageUrl" />
-                  </a>
-                  <h4><a [routerLink]="['details',pokemon.id]">{{pokemon.supertype}}</a></h4>
-            </div>
-            </div>    
-  </div>
-</div>
-<div class="loader" *ngIf="!infiniteScorllStatus">Loading...</div> -->
-
 <div class="container" *ngIf="pokemons; else loading">
-  <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="5"
-    (scrolled)="onScrollDown()" infinite-scroll-disabled="infiniteScorllStatus">
-    <div class="row">
-      <div col-sm-3 *ngFor="let pokemon of pokemons; index as id">
-        <div class="card-deck mb-3 text-center" (click)="openDialog(pokemon)">
-          <div class="card mb-4 box-shadow">
-            <div class="card-header">
-              <h6>
-                <a [title]="pokemon.name + ' details'" [routerLink]="['details',pokemon.id]">
-                  {{ pokemon.name | uppercase}}
-                </a>
-              </h6>
+    <div infinite-scroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="2" [infiniteScrollThrottle]="5" (scrolled)="onScrollDown()" infinite-scroll-disabled="infiniteScorllStatus">
+        <div class="row">
+            <div class="card-deck col-sm-4" *ngFor="let pokemon of pokemons; index as id">
+                <div class=" mb-3 text-center" (click)="openDialog(pokemon)">
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h6 class="header">
+                                {{ pokemon.name | uppercase}}
+                            </h6>
+                            <span>{{pokemon.supertype}}</span>
+                        </div>
+                        <div class="card-body">
+                            <img [src]="pokemon.imageUrlHiRes" />
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-body image-container">
-              <div>
-                <a [routerLink]="['details',pokemon.id]">
-                  <img [src]="pokemon.imageUrl" />
-                </a>
-              </div>
-              <div><span>Super Type : </span><a [routerLink]="['details',pokemon.id]">{{pokemon.supertype}}</a></div>
-            </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <div class="loader" *ngIf="!infiniteScorllStatus">Loading...</div>

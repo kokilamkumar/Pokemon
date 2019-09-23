@@ -1,11 +1,14 @@
-<h2 mat-dialog-title>Pokemon Details</h2>
+<mat-toolbar class="padding-nav">
+    <mat-toolbar-row>
+        <span>Pokemon Details</span>
+        <span class="spacer"></span>
+        <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabindex="-1">
+                <mat-icon>clear</mat-icon>
+            </button>
+    </mat-toolbar-row>
+
+</mat-toolbar>
+
 <mat-dialog-content>
-    <div>
-        <span>Pokemon Name : </span>
-        <p>{{data.name}}</p>
-    </div>
     <app-pokemon-details [dataId]=data.id></app-pokemon-details>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-button mat-dialog-close>Close</button>    
-</mat-dialog-actions>

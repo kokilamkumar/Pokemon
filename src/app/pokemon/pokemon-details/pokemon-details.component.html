@@ -1,30 +1,112 @@
 <!-- <div class="wrapper"><button type="button" class="btn btn-primary" (click)="goToPokemonListPage()">Back</button></div>  -->
 <div class="container" *ngIf="pokemon">
   <div class="row">
-  <div class="col-sm-4">
-      <img [src]="pokemon.card.imageUrl">
+    <div class="col-sm-5 image align-content">
+      <img class="card-img" [src]="pokemon.card.imageUrlHiRes">
+    </div>
+    <div class="col-sm-7 align-content">
+      <div class="row" *ngIf="pokemon.card.name">
+        <div class="col-sm-6">
+          <label class="title">Pokemon Name :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.name | uppercase}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.id">
+        <div class="col-sm-6">
+          <label class="title">Pokemon Id :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.id}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.supertype">
+        <div class="col-sm-6">
+          <label class="title">Supertype :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.supertype}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.series">
+        <div class="col-sm-6">
+          <label class="title">Series :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.series}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.types">
+        <div class="col-sm-6">
+          <label class="title">Types :</label>
+        </div>
+        <div class="col-sm-6">
+          <span *ngFor="let pokemonType of pokemon.card.types">
+            {{pokemonType}}
+          </span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.rarity">
+        <div class="col-sm-6">
+          <label class="title">Rarity :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.rarity}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.nationalPokedexNumber">
+        <div class="col-sm-6">
+          <label class="title">National Pokedex Number :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.nationalPokedexNumber}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.hp">
+        <div class="col-sm-6">
+          <label class="title">HP :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.hp}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.set">
+        <div class="col-sm-6">
+          <label class="title">Set :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.set}}</span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.attacks">
+        <div class="col-sm-6">
+          <label class="title">Attacks :</label>
+        </div>
+        <div class="col-sm-6">
+          <span *ngFor="let attack of pokemon.card.attacks">
+            {{attack.name}}
+          </span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.weaknesses">
+        <div class="col-sm-6">
+          <label class="title">Weaknesses :</label>
+        </div>
+        <div class="col-sm-6">
+          <span *ngFor="let weakness of pokemon.card.weaknesses">
+            {{weakness.type}}
+          </span>
+        </div>
+      </div>
+      <div class="row" *ngIf="pokemon.card.evolvesFrom">
+        <div class="col-sm-6">
+          <label class="title">Evolves Form :</label>
+        </div>
+        <div class="col-sm-6">
+          <span>{{pokemon.card.evolvesFrom}}</span>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-sm-8">
-      <h1>{{pokemon.card.name | uppercase}}</h1>
-      <h2>{{pokemon.card.id}}</h2>
-      <p>{{pokemon.card.supertype}}</p>
-      <p>{{pokemon.card.series}}</p>
-      <div *ngIf="pokemon.card.types">
-        <p *ngFor="let pokemonType of pokemon.card.types">
-          {{pokemonType}}
-        </p>
-      </div>      
-      <p>{{pokemon.card.rarity}}</p>
-      <p>{{pokemon.card.nationalPokedexNumber}}</p>
-      <p>{{pokemon.card.hp}}</p>
-      <p>{{pokemon.card.set}}</p>
-      <p *ngFor="let attack of pokemon.card.attacks">
-        {{attack.name}}
-      </p>
-      <p *ngFor="let weakness of pokemon.card.weaknesses">
-        {{weakness.type}}
-      </p>
-      <p>{{pokemon.card.evolvesFrom}}</p>
-  </div>
-</div>
 </div>

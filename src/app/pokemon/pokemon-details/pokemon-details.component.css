@@ -1,0 +1,21 @@
+img {
+    width:100%;
+    max-width: 368px;
+    height:auto;
+    max-height: 506px;      
+}
+h5 {
+    float: left
+}
+span {
+    display: block;
+    overflow: hidden;
+    padding: 0 4px 0 6px
+}
+.title{
+    font-weight: bold;
+    text-decoration-color: navy;
+}
+.align-content{
+    align-content: center;
+}

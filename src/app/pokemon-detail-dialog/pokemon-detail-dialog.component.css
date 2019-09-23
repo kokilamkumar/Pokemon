@@ -1,0 +1,28 @@
+.btn-dialog-close {
+    width: 45px;
+    height: 40px;
+    padding: 0px !important;
+    border-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 300px) {
+    .font {
+        white-space: pre-line !important;
+    }
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+mat-icon {
+    position: relative;
+}
+
+.mat-stroked-button:not([disabled]) {
+    border-color: rgba(0, 0, 0, 0);
+}
+
+.padding-nav {
+    margin-bottom: 10px;
+}

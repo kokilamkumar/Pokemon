@@ -16,7 +16,7 @@ export class PokemonDetailDialogComponent implements OnInit {
   ngOnInit() {
   }
 
-  save() {
-    this.dialogRef.close('Window saved.');
+  onClose() {
+    this.dialogRef.close();
   }
 }
